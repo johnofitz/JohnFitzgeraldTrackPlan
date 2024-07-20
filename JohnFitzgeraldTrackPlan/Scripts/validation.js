@@ -7,27 +7,42 @@
     // Only add event listener if form is present
     if (form) { 
         form.addEventListener('submit', function (event) {
-            const input = wordInput.value.trim();
-            const wordPattern = /^[a-zA-Z]+$/; // Pattern to match a single word without numbers
+            const wordInput = document.getElementById('wordInput');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Trim the input value
+            let input = wordInput.value.trim();
+
+            // Clear previous error message
+            errorMessage.textContent = '';
+
+            // Validate trimmed input
+            const wordPattern = /^[a-zA-Z]+$/;
 
             // Check if input is empty
             if (input === '') {
                 errorMessage.textContent = 'Input cannot be empty!';
-                event.preventDefault();
+                event.preventDefault(); // Prevent form submission
+                return;
             }
+
             // Check if input contains spaces
-            else if (input.includes(' ')) {
+            if (input.includes(' ')) {
                 errorMessage.textContent = 'Try a single word; sentences will not be processed!';
-                event.preventDefault();
+                event.preventDefault(); // Prevent form submission
+                return;
             }
+
             // Check if input contains numbers or other invalid characters
-            else if (!wordPattern.test(input)) {
+            if (!wordPattern.test(input)) {
                 errorMessage.textContent = 'Words cannot contain numbers or special characters, please try again!';
-                event.preventDefault();
+                event.preventDefault(); // Prevent form submission
+                return;
             }
-            else {
-                errorMessage.textContent = ''; 
-            }
+
+            // If no errors, update the input value and allow form submission
+            wordInput.value = input;
+
         });
 
         // Event listener to clear error message when user starts editing

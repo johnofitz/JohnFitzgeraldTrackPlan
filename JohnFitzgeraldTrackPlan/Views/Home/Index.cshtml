@@ -7,12 +7,13 @@
         <h1 class="card-title">Trackplan Diagonal Word Test</h1>
         <form id="wordForm" method="post" action="/Home/Word">
             <div class="form-group">
-                @Html.TextBoxFor(model => model.Word, 
-                new { 
-                    @class = "form-control", 
-                    id = "wordInput", 
-                    placeholder = "Enter a Word" 
-                    })
+                @Html.TextBoxFor(model => model.Word,
+                new
+                     {
+                    @class = "form-control",
+                    id = "wordInput",
+                    placeholder = "Enter a Word"
+                })
                 <div id="error-message" class="error-message"></div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

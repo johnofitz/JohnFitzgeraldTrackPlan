@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
 using JohnFitzgeraldTrackPlan.Models;
 
@@ -17,22 +18,29 @@ namespace JohnFitzgeraldTrackPlan.Controllers
         [HttpPost]
         public ActionResult Word(DataModel model)
         {
-            if (model.Word != null && model.Word.Contains(" "))
+            try
             {
-                ModelState.AddModelError("Word", "Try a single word; sentences will not be processed!");
-            }
+                var word =model.Word.Trim();
 
-            if (!ModelState.IsValid)
+                if (string.IsNullOrEmpty(word))
+                {
+                    ModelState.AddModelError("Word", "Input cannot be empty!");
+                }
+                else if (word.Contains(" "))
+                {
+                    ModelState.AddModelError("Word", "Try a single word; sentences will not be processed!");
+                }
+
+                TempData["Word"] = word;
+                return RedirectToAction("WordOutput");
+            }
+            catch (Exception ex)
             {
-                return View(model); // Return to the form view with validation messages
+                return View("Error"); 
             }
-
-            // Store the data in TempData
-            TempData["Word"] = model.Word;
-
-            // Redirect to another action
-            return RedirectToAction("WordOutput");
         }
+
+
 
 
         public ActionResult WordOutput()
