@@ -1,0 +1,65 @@
+﻿@model JohnFitzgeraldTrackPlan.Models.DataModel
+
+@Styles.Render("~/Content/landing")
+
+@{
+    char[] charArray = Model.CharArray;
+    int length = charArray.Length;
+}
+
+<main class="word-display-container" id="scroll-container">
+    <div id="wordDisplay" hidden>@charArray.Length</div>
+    <div class="card-container">
+        <!-- Original Table -->
+        <table class="char-table">
+            @for (int i = 0; i < length; i++)
+            {
+                <tr>
+                    @for (int j = 0; j < length; j++)
+                    {
+                        if (j == i)
+                        {
+                            <td id="cell-@(i)-@(j)" class="@(i % 2 == 0 ? "greenclass" : (charArray[j] == ' ' ? "emptycell" : "redclass"))">
+                                @charArray[i]
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="emptycell"></td>
+                        }
+                    }
+                </tr>
+            }
+        </table>
+
+        <!-- Reversed Table -->
+        <table class="char-table">
+            @for (int i = 0; i < length; i++)
+            {
+                <tr>
+                    @for (int j = 0; j < length; j++)
+                    {
+                        if (j == (length - 1 - i))
+                        {
+                            <td id="reversed-cell-@(i)-@(j)" class="@(i % 2 != 0 ? "greenclass" : (charArray[j] == ' ' ? "emptycell" : "redclass"))">
+                                @charArray[i]
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="emptycell"></td>
+                        }
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+</main>
+
+@Scripts.Render("~/bundles/validation")
+
+<!-- Fixed Button -->
+<button id="fixed-button" class="fixed-button" onclick="navigateToIndex()">
+    &#9664; <!-- Unicode for a left arrow -->
+</button>
+<div id="hover-message" class="hidden">Play Again</div>
