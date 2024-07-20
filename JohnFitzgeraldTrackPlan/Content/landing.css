@@ -2,24 +2,24 @@
 body {
     margin: 0;
     padding: 0;
-    overflow-y: auto; /* Allow vertical scrolling */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    overflow-y: auto;
+    box-sizing: border-box; 
 }
 
 /* General styles for the main element */
 .home-display-container {
     display: flex;
-    justify-content: center; /* Center the card horizontally */
-    align-items: center; /* Center the card vertically */
-    height: 90vh; /* Full viewport height */
-    background-color: #ffffff; /* Light background color for contrast */
-    margin: 0; /* Remove default margin */
+    justify-content: center; 
+    align-items: center; 
+    height: 90vh;
+    background-color: #ffffff; 
+    margin: 0;
 }
 /* Styles for the card title */
 .card-title {
-    font-size: 24px; /* Font size for the heading */
+    font-size: 24px; 
     margin-bottom: 20px; /* Space below the heading */
-    color: #333; /* Heading text color */
+    color: #333; 
     margin-bottom: 30px;
 }
 /* Styles for the card */
@@ -98,8 +98,8 @@ form {
     display: flex;
     flex-direction: column; /* Arrange child elements vertically */
     align-items: center; /* Center child elements horizontally */
-    padding: 20px; /* Add padding for spacing */
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Table Styles */
@@ -125,7 +125,7 @@ form {
 
 /* Class for Fade-In Animation */
 .fadeInAnimation {
-    animation: fadeIn 0.6s ease-in-out; /* Duration and easing function */
+    animation: fadeIn 0.3s ease-in-out; /* Duration and easing function */
 }
 /* Table Cell Styles */
 .char-table td {
@@ -134,45 +134,45 @@ form {
     text-align: center;
     vertical-align: middle;
     border-radius: 5px;
-    margin: 0; /* Remove margin to avoid extra space */
-    opacity: 0; /* Initially hide the letters */
+    margin: 0;
+    opacity: 0;
     transition: opacity 0.5s ease-in-out; /* Smooth transition */
-    animation: none; /* Disable default animation */
+    animation: none;
 }
-
 /* Styles for Different Cell Types */
+
 .redclass {
-    border: 2px solid #FF7276; /* Default border for cells with content */
+    border: 2px solid #FF7276; 
 }
 
 .greenclass {
-    border: 2px solid #90EE90; /* Default border for cells with content */
+    border: 2px solid #90EE90; 
 }
 
 .emptycell {
     border-width: 0; /* Remove border width */
-    border-style: none; /* Remove border style */
-    background-color: transparent; /* Ensure background is transparent */
+    border-style: none;
+    background-color: transparent; 
 }
 .fixed-button {
     position: fixed;
     bottom: 20px; /* Distance from the bottom of the page */
     right: 20px; /* Distance from the right of the page */
-    padding: 10px 15px; /* Padding around the arrow */
-    background-color: #419cff; /* Button background color */
-    color: white; /* Arrow color */
+    padding: 10px 15px; 
+    background-color: #419cff; 
+    color: white; 
     border: none;
-    border-radius: 50%; /* Makes the button round */
-    font-size: 20px; /* Adjust the size of the arrow */
+    border-radius: 50%; 
+    font-size: 20px; 
     cursor: pointer;
-    z-index: 1000; /* Ensures the button is on top of other elements */
+    z-index: 1000; 
     display: flex;
     align-items: center;
     height: 50px;
     width: 50px;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: Adds shadow for better visibility */
-    transition: background-color 0.3s; /* Smooth background color transition on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+    transition: background-color 0.3s; 
 }
 
     .fixed-button:hover {
@@ -187,15 +187,15 @@ form {
     position: fixed;
     bottom: 90px; /* Position the message above the button */
     right: 30px; /* Align the message to the top left of the button */
-    padding: 5px 10px; /* Padding around the message */
-    border: 1px solid #000; /* Border color */
-    background-color: #fff; /* Background color */
-    color: #000; /* Text color */
-    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; 
+    border: 1px solid #000; 
+    background-color: #fff;
+    color: #000; 
+    border-radius: 5px; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds shadow for better visibility */
-    font-size: 14px; /* Font size for the message */
-    white-space: nowrap; /* Prevents the message from wrapping */
-    z-index: 1001; /* Ensures the message is above the button */
+    font-size: 14px; 
+    white-space: nowrap; 
+    z-index: 1001; 
     transition: opacity 0.3s; /* Smooth transition for the message */
 }
 
