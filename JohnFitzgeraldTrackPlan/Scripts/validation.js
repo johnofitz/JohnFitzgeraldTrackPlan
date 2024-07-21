@@ -60,10 +60,10 @@
         cells.forEach((cell, index) => {
             let delay;
             // Adjust the delay based on word length
-            if (word.length > 15) {
-                delay = index; // Faster delay for very long words
-            } else if (word.length > 8) {
-                delay = index * 10; // Moderate delay for medium-length words
+            if (word > 15) {
+                delay = index*20; // Faster delay for very long words
+            } else if (word > 8) {
+                delay = index * 40; // Moderate delay for medium-length words
             } else {
                 delay = index * 80; // Longer delay for shorter words
             }
